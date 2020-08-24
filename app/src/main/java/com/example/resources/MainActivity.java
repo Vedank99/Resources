@@ -8,12 +8,14 @@ import androidx.core.content.ContextCompat;
 
 import android.Manifest;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.Handler;
 import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -34,72 +36,31 @@ import com.google.firebase.storage.StorageReference;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.zip.CheckedOutputStream;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static final int REQUEST_WRITE_STORAGE_REQUEST_CODE = 0;
-    DatabaseReference databaseReference;
-
-    ListView listView;
-    List<pdfs> pdfsList;
-    PDFlistAdapter adapter;
+    public static Context mContext;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        pdfsList = new ArrayList<>();
-        listView = findViewById(R.id.rootList);
-
-
-        adapter = new PDFlistAdapter(this,R.layout.pdf_layout,pdfsList);
-        listView.setAdapter(adapter);
-
         getPermissions();
+        mContext = this;
 
-        viewAllFiles();
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
 
+                Intent intent = new Intent(MainActivity.this, Years.class);
+                MainActivity.this.startActivity(intent);
 
-    }
-
-    private void viewAllFiles() {
-            databaseReference = FirebaseDatabase.getInstance().getReference("Data");
-            Log.d("size before :", "pdf size " + pdfsList.size());
-
-            databaseReference.addChildEventListener(new ChildEventListener() {
-                @Override
-                public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                    Log.d("Size of pdfFile", "" + pdfsList.size());
-                    pdfs currentPDF = snapshot.getValue(pdfs.class);
-                    pdfsList.add(currentPDF);
-                    adapter.notifyDataSetChanged();
-                }
-
-                @Override
-                public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-
-                }
-
-                @Override
-                public void onChildRemoved(@NonNull DataSnapshot snapshot) {
-
-                }
-
-                @Override
-                public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-
-                }
-
-                @Override
-                public void onCancelled(@NonNull DatabaseError error) {
-
-                }
-
-            });
+            }
+        },3500);
 
 
-            Log.d("ViewALlFiles", "Being ended");
 
     }
 
@@ -110,12 +71,11 @@ public class MainActivity extends AppCompatActivity {
 
         if(ContextCompat.checkSelfPermission(this,externalWritePermission) != PackageManager.PERMISSION_GRANTED &&
                 ContextCompat.checkSelfPermission(this,externalReadPermission) != PackageManager.PERMISSION_GRANTED ){
-                if( Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
-                    requestPermissions(new String[]{externalReadPermission,externalWritePermission},100);
-                }
+            if( Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
+                requestPermissions(new String[]{externalReadPermission,externalWritePermission},100);
+            }
         }
 
     }
-
 
 }

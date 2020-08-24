@@ -1,7 +1,6 @@
 package com.example.resources;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -24,7 +23,6 @@ import androidx.core.content.FileProvider;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.storage.FileDownloadTask;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
@@ -41,8 +39,8 @@ public class PDFlistAdapter extends ArrayAdapter<pdfs> {
     int mResource;
 
 
-    public PDFlistAdapter(@NonNull Context context, int resource,  @NonNull List<pdfs> objects) {
-        super(context, resource, objects);
+    public PDFlistAdapter(@NonNull Context context, int resource, @NonNull List<pdfs> objects) {
+        super(context,resource, objects);
         mContext = context;
         mResource = resource;
     }

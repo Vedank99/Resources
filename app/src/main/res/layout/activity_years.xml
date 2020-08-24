@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#11111F"
+    tools:context=".Years">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:text="Select the year"
+        android:gravity="center"
+        android:textColor="#CCCCCC"
+        android:textSize="35dp"
+        />
+
+    <TextView
+        android:layout_width="300dp"
+        android:layout_height="75dp"
+        android:layout_margin="8dp"
+        android:textAllCaps="false"
+        android:layout_gravity="center"
+        android:background="@drawable/custom_button"
+        android:gravity="center"
+        android:text="First Year"
+        android:textSize="30dp"
+        android:textColor="#AAAAAA"
+        android:id = "@+id/firstYear"
+        />
+    <TextView
+        android:layout_width="300dp"
+        android:layout_height="75dp"
+        android:layout_margin="8dp"
+        android:textAllCaps="false"
+        android:layout_gravity="center"
+        android:background="@drawable/custom_button"
+        android:text="Second Year"
+        android:gravity="center"
+        android:textSize="30dp"
+        android:textColor="#AAAAAA"
+        android:id = "@+id/secondYear"
+        />
+    <TextView
+        android:layout_width="300dp"
+        android:layout_height="75dp"
+        android:layout_margin="8dp"
+        android:textAllCaps="false"
+        android:layout_gravity="center"
+        android:background="@drawable/custom_button"
+        android:text="Third Year"
+        android:gravity="center"
+        android:textSize="30dp"
+        android:textColor="#AAAAAA"
+        android:id = "@+id/thirdYear"
+        />
+    <TextView
+        android:layout_width="300dp"
+        android:layout_height="75dp"
+        android:layout_margin="8dp"
+        android:textAllCaps="false"
+        android:layout_gravity="center"
+        android:background="@drawable/custom_button"
+        android:text="Fourth Year"
+        android:gravity="center"
+        android:textSize="30dp"
+        android:textColor="#AAAAAA"
+        android:id = "@+id/fourthYear"
+        />
+
+
+</LinearLayout>
