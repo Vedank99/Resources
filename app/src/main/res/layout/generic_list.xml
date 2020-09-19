@@ -3,18 +3,19 @@
     android:layout_width="match_parent"
     android:layout_height="75dp"
     android:orientation="horizontal"
-    android:background="#676565"
     >
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
+        android:background="#676565"
+        android:textColor="#E8E8E8"
         android:textSize="15sp"
+        android:fontFamily="sans-serif"
         android:layout_weight="0.75"
         android:layout_gravity="center"
+        android:layout_margin="8dp"
         android:gravity="center"
-        android:fontFamily="sans-serif"
+        android:id="@+id/nameList"
         android:text="ABCD"
-        android:textColor="#E8E8E8"
-        android:id="@+id/namePDF"
         />
 </LinearLayout>

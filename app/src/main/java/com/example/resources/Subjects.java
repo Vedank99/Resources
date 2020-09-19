@@ -1,16 +1,36 @@
 package com.example.resources;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.TextView;
+import android.util.Log;
+import android.widget.ListView;
+
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Subjects extends AppCompatActivity {
+    DatabaseReference databaseReference;
 
-    String year;
-    String branch;
+    ListView listView;
+    List<String> subjectLists;
+    BranchlistAdapter adapter;
+    Context context;
+    private AdView mAdView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,61 +38,65 @@ public class Subjects extends AppCompatActivity {
 
         setContentView(R.layout.activity_subjects);
 
+        MobileAds.initialize(this,"ca-app-pub-3940256099942544~3347511713");
+
+        mAdView = findViewById(R.id.adView);
+        final AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
+
         final Intent intent = getIntent();
-        year = intent.getStringExtra("Year");
-        branch = intent.getStringExtra("Branch");
+        String title = intent.getStringExtra("Parent");
 
-        TextView sub1 = findViewById(R.id.subject1);
-        TextView sub2 = findViewById(R.id.subject2);
+        subjectLists = new ArrayList<>();
+        listView = findViewById(R.id.subjectList);
 
-        setTitle(year + " " + branch);
 
-        final String sub1Text;
-        final String sub2Text;
+        context = MainActivity.mContext;
 
-        if(year.equals("First Year")){
 
-            sub1.setText("Maths");
-            sub2.setText("Physics");
-            sub1Text = "Maths";
-            sub2Text = "Physics";
+        adapter = new BranchlistAdapter(Subjects.this,R.layout.generic_list,subjectLists,title,"Subject");
+        listView.setAdapter(adapter);
 
-        }else{
-            if(branch.equals("CSE")){
-
-                sub1.setText("DBMS");
-                sub2.setText("Data Structures");
-
-                sub1Text = "DBMS";
-                sub2Text = "Data Structures";
-
-            }else{
-
-                sub1.setText("Analog Electronics");
-                sub2.setText("Digital Electronics");
-
-                sub1Text = "Analog";
-                sub2Text = "Digital";
-
-            }
-        }
-
-        sub1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent1 = new Intent(Subjects.this,PDFView.class);
-                intent1.putExtra("Title",year + " " + branch + " " + sub1Text);
-                startActivity(intent1);
-            }
-        });
-
-        sub2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent1 = new Intent(Subjects.this,PDFView.class);
-                intent1.putExtra("Title",year + " " + branch + " " + sub2Text);
-                startActivity(intent1);
-            }
-        });
+        viewAllFiles(title);
     }
+
+    private void viewAllFiles(String title) {
+        databaseReference = FirebaseDatabase.getInstance().getReference(title);
+        Log.d("Firebase Path :", "Path " + title);
+
+        databaseReference.addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+                String curBranch = snapshot.getKey();
+                subjectLists.add(curBranch);
+                adapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+
+        });
+
+
+        Log.d("ViewALlFiles", "Being ended");
+
+    }
+
 }

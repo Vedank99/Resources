@@ -8,13 +8,20 @@
     tools:context=".MainActivity">
     <TextView
         android:layout_width="300dp"
-        android:layout_height="100dp"
-        android:layout_centerInParent="true"
+        android:layout_height="50dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="150dp"
         android:text="Resources App"
         android:textColor="#FFFFFF"
         android:textSize="40dp"
         android:gravity="center"
+        android:id="@+id/titleApp"
         />
-
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:src="@drawable/resourceslogo"
+        android:layout_below="@id/titleApp"
+        />
 
 </RelativeLayout>

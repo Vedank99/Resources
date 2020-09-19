@@ -5,6 +5,9 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.example.resources.Fragments.BookFragment;
+import com.example.resources.Fragments.NoteFragment;
+import com.example.resources.Fragments.PaperFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.annotation.NonNull;
@@ -21,10 +24,9 @@ public class PDFView extends AppCompatActivity {
         setContentView(R.layout.activity_p_d_f_view);
 
         Intent intent = getIntent();
-        title = intent.getStringExtra("Title");
-        setTitle(title);
+        title = intent.getStringExtra("Parent");
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.frame_container,new BookFragment()).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.frame_container,new BookFragment(title)).commit();
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_nav);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -36,13 +38,13 @@ public class PDFView extends AppCompatActivity {
                 switch (item.getItemId()){
 
                     case R.id.navigation_books :
-                        fragment = new BookFragment();
+                        fragment = new BookFragment(title);
                         break;
                     case R.id.navigation_notes :
-                        fragment = new NoteFragment();
+                        fragment = new NoteFragment(title);
                         break;
                     case R.id.navigation_papers :
-                        fragment = new PaperFragment();
+                        fragment = new PaperFragment(title);
                         break;
 
                 }
