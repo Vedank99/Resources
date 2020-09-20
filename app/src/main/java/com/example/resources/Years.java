@@ -2,8 +2,12 @@ package com.example.resources;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -30,6 +34,7 @@ public class Years extends AppCompatActivity {
         final AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
 
+        getPermissions();
 
         Intent intent = getIntent();
         final String path = intent.getStringExtra("Parent");
@@ -75,6 +80,19 @@ public class Years extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+    }
+    private void getPermissions(){
+
+        String externalReadPermission = Manifest.permission.READ_EXTERNAL_STORAGE.toString();
+        String externalWritePermission = Manifest.permission.WRITE_EXTERNAL_STORAGE.toString();
+
+        if(ContextCompat.checkSelfPermission(this,externalWritePermission) != PackageManager.PERMISSION_GRANTED &&
+                ContextCompat.checkSelfPermission(this,externalReadPermission) != PackageManager.PERMISSION_GRANTED ){
+            if( Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
+                requestPermissions(new String[]{externalReadPermission,externalWritePermission},100);
+            }
+        }
 
     }
 }
