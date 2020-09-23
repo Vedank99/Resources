@@ -6,22 +6,26 @@
     android:id = "@+id/MainList"
     android:background="#000000"
     tools:context=".MainActivity">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="125dp"
+        android:src="@drawable/logo_inner"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
+        android:id="@+id/logo"
+        />
     <TextView
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="150dp"
-        android:text="Resources App"
+        android:text="Resources"
         android:textColor="#FFFFFF"
         android:textSize="40dp"
+        android:layout_marginTop="25dp"
+        android:fontFamily="sans-serif-black"
         android:gravity="center"
         android:id="@+id/titleApp"
-        />
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:src="@drawable/resourceslogo"
-        android:layout_below="@id/titleApp"
+        android:layout_below="@id/logo"
         />
 
 </RelativeLayout>

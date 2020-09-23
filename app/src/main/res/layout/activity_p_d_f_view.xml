@@ -8,9 +8,21 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@id/bottom_nav"
+        android:layout_above="@id/adView"
         android:id="@+id/frame_container"
         />
+    <com.google.android.gms.ads.AdView
+        xmlns:ads="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/adView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/cardview_dark_background"
+        android:layout_weight="1"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@id/bottom_nav"
+        ads:adSize="BANNER"
+        ads:adUnitId="ca-app-pub-3940256099942544/6300978111">
+    </com.google.android.gms.ads.AdView>
     <com.google.android.material.bottomnavigation.BottomNavigationView
         app:menu="@menu/bottom_nav_menu"
         android:layout_width="match_parent"

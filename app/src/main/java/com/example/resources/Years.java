@@ -25,9 +25,6 @@ public class Years extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_years);
 
-        this.getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
-        getSupportActionBar().setCustomView(R.layout.custom_action_bar);
-
         MobileAds.initialize(this,"ca-app-pub-3940256099942544~3347511713");
 
         mAdView = findViewById(R.id.adView);

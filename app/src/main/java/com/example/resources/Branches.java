@@ -3,7 +3,9 @@ package com.example.resources;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -31,6 +33,7 @@ public class Branches extends AppCompatActivity {
     Context context;
     public String title;
     private AdView mAdView;
+    Toolbar toolbar;
 
 
     @Override
@@ -40,6 +43,8 @@ public class Branches extends AppCompatActivity {
 
         final Intent intent = getIntent();
         title = intent.getStringExtra("Parent");
+        toolbar = findViewById(R.id.branchToolbar);
+        setSupportActionBar(toolbar);
 
         MobileAds.initialize(this,"ca-app-pub-3940256099942544~3347511713");
 

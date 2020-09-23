@@ -30,8 +30,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         mContext = this;
 
-        getSupportActionBar().hide();
-
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {

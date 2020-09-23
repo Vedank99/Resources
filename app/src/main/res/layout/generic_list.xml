@@ -1,21 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="75dp"
+    android:layout_height="78.33dp"
     android:orientation="horizontal"
+    android:paddingLeft="28dp"
+    android:paddingRight="28dp"
+    android:layout_gravity="center"
+    android:paddingBottom="26dp"
     >
+
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:background="#676565"
-        android:textColor="#E8E8E8"
-        android:textSize="15sp"
-        android:fontFamily="sans-serif"
-        android:layout_weight="0.75"
-        android:layout_gravity="center"
-        android:layout_margin="8dp"
-        android:gravity="center"
         android:id="@+id/nameList"
-        android:text="ABCD"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:background="@drawable/branchlist_button"
+        android:fontFamily="@font/gotham_bold"
+        android:gravity="center"
+        android:textColor="#232323"
+        android:textSize="12sp"
         />
 </LinearLayout>
