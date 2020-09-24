@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:id = "@+id/MainList"
     android:background="#2e2e2e"
-    tools:context=".MainActivity">
+    tools:context=".Activities.MainActivity">
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="300dp"

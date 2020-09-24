@@ -5,17 +5,23 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#2E2E2E"
-    tools:context=".Subjects">
+    tools:context=".Activities.Subjects">
+
+    <include layout="@layout/branch_toolbar"
+        android:id="@+id/toolbar"/>
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:text="Select the subject"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="34dp"
+        android:layout_marginBottom="56dp"
+        android:text="Select the branch"
         android:gravity="center"
-        android:textColor="#E8E8E8"
-        android:textSize="32sp"
-        android:fontFamily="sans-serif-black"
+        android:textColor="#FFFFFF"
+        android:textSize="36sp"
+        android:fontFamily="@font/product_sans_bold"
         android:id = "@+id/subjectText"
+        android:layout_below="@id/toolbar"
         />
 
     <ListView
@@ -28,13 +34,13 @@
     <com.google.android.gms.ads.AdView
         xmlns:ads="http://schemas.android.com/apk/res-auto"
         android:id="@+id/adView"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
+        android:background="@color/cardview_dark_background"
         ads:adSize="BANNER"
         ads:adUnitId="ca-app-pub-3940256099942544/6300978111">
     </com.google.android.gms.ads.AdView>
-
 </RelativeLayout>

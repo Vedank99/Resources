@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#2E2E2E"
-    tools:context=".Years">
+    tools:context=".Activities.Years">
     <View android:id="@+id/fakeView"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -17,8 +17,11 @@
         android:textColor="#E8E8E8"
         android:textSize="32dp"
         android:fontFamily="sans-serif-black"
+        android:layout_below="@id/toolbar"
         android:id="@+id/selectYear"
         />
+    <include layout="@layout/branch_toolbar"
+        android:id="@+id/toolbar"/>
 
     <TextView
         android:layout_width="fill_parent"

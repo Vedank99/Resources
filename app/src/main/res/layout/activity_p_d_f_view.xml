@@ -5,10 +5,13 @@
     android:layout_height="match_parent"
     android:background="#2E2E2E"
     >
+    <include layout="@layout/branch_toolbar"
+        android:id="@+id/toolbar"/>
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@id/adView"
+        android:layout_below="@id/toolbar"
         android:id="@+id/frame_container"
         />
     <com.google.android.gms.ads.AdView
