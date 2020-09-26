@@ -11,7 +11,9 @@
         android:layout_centerInParent="true"/>
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="170dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="34dp"
+        android:layout_marginBottom="56dp"
         android:text="Select the year"
         android:gravity="center"
         android:textColor="#E8E8E8"
@@ -26,7 +28,6 @@
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="75dp"
-        android:layout_margin="8dp"
         android:textAllCaps="false"
         android:layout_alignRight="@id/fakeView"
         android:layout_below="@id/selectYear"
@@ -41,7 +42,6 @@
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="75dp"
-        android:layout_margin="8dp"
         android:textAllCaps="false"
         android:layout_alignLeft="@id/fakeView"
         android:layout_below="@id/firstYear"
@@ -56,7 +56,6 @@
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="75dp"
-        android:layout_margin="8dp"
         android:textAllCaps="false"
         android:layout_alignRight="@id/fakeView"
         android:layout_below="@id/secondYear"
@@ -71,7 +70,6 @@
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="75dp"
-        android:layout_margin="8dp"
         android:textAllCaps="false"
         android:layout_alignLeft="@id/fakeView"
         android:layout_below="@id/thirdYear"

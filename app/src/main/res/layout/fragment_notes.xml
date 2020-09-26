@@ -1,18 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#2e2e2e">
 
     <ScrollView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:id="@+id/noteScroll"
         />
-
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/nodata_icon"
+        android:layout_gravity="center"
+        android:layout_marginTop="125dp"
+        android:id="@+id/noDataIconNotes"
+        android:layout_below="@id/noteScroll"
+        android:layout_centerHorizontal="true"
+        android:background="#2e2e2e"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/no_data"
+        android:textSize="20sp"
+        android:textColor="#C4C4C4"
+        android:padding="30dp"
+        android:fontFamily="@font/gotham_bold"
+        android:layout_below="@id/noDataIconNotes"
+        android:id="@+id/noDataNotes"
+        android:gravity="center"
+        />
     <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/notesList"
         />
-
-</LinearLayout>
+</RelativeLayout>
