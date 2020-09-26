@@ -6,5 +6,5 @@
         android:title="About" />
     <item
         android:id="@+id/addResources"
-        android:title="Add Resources" />
+        android:title="Add material" />
 </menu>

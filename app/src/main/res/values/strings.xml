@@ -4,5 +4,5 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
-    <string name="no_data">Data not available for this category</string>
+    <string name="no_data">Material currently not available for this category</string>
 </resources>

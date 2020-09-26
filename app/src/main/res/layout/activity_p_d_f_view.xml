@@ -5,13 +5,30 @@
     android:layout_height="match_parent"
     android:background="#2E2E2E"
     >
-    <include layout="@layout/branch_toolbar"
-        android:id="@+id/toolbar"/>
+    <androidx.appcompat.widget.Toolbar
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#3c2c48"
+        android:elevation="4dp"
+        android:id="@+id/pdfToolbar"
+        android:theme="@style/AppTheme.AppBarOverlay"
+        app:popupTheme="@style/AppTheme.PopupOverlay">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="DTU Resources"
+            android:id="@+id/pdfToolbarTitle"
+            android:fontFamily="sans-serif-black"
+            android:textSize="15sp"
+            android:textColor="#FFFFFF"
+            />
+    </androidx.appcompat.widget.Toolbar>
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@id/adView"
-        android:layout_below="@id/toolbar"
+        android:layout_below="@id/pdfToolbar"
         android:id="@+id/frame_container"
         />
     <com.google.android.gms.ads.AdView
@@ -30,7 +47,7 @@
         app:menu="@menu/bottom_nav_menu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#BBBBBB"
+        android:background="#c4c4c4"
         android:layout_alignParentBottom="true"
         android:id="@+id/bottom_nav"
         />

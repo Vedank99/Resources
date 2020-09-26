@@ -29,6 +29,7 @@
         android:layout_width="fill_parent"
         android:layout_height="75dp"
         android:textAllCaps="false"
+        android:layout_marginRight="25dp"
         android:layout_alignRight="@id/fakeView"
         android:layout_below="@id/selectYear"
         android:background="@drawable/custom_button"
@@ -50,6 +51,7 @@
         android:text="2nd Year"
         android:textColor="#E8E8E8"
         android:textSize="32dp"
+        android:layout_marginLeft="25dp"
         android:fontFamily="sans-serif-black"
         android:id = "@+id/secondYear"
         />
@@ -64,6 +66,7 @@
         android:text="3rd Year"
         android:textColor="#E8E8E8"
         android:textSize="32dp"
+        android:layout_marginRight="25dp"
         android:fontFamily="sans-serif-black"
         android:id = "@+id/thirdYear"
         />
@@ -75,6 +78,7 @@
         android:layout_below="@id/thirdYear"
         android:background="@drawable/custom_button_2"
         android:gravity="center"
+        android:layout_marginLeft="25dp"
         android:text="4th Year"
         android:textColor="#E8E8E8"
         android:textSize="32dp"
